@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Security.AccessControl;
 
 namespace ArdalisRating
 {
@@ -27,6 +28,8 @@ namespace ArdalisRating
         public int Miles { get; set; }
         public decimal Deductible { get; set; }
         #endregion
+
+        public bool LivesNearOcean { get; set; }
 
     }
 }
