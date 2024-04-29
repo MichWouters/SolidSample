@@ -13,7 +13,7 @@
     <None Update="Policies\samplePolicies.json.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Policies\policy.json">
+    <None Update="policy.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

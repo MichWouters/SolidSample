@@ -8,13 +8,13 @@ namespace ArdalisRating.Context
 {
     public class DefaultRatingContext : IDefaultRatingContext
     {
-        public RatingEngine Engine { get; set; }
+          public RatingEngine Engine { get; set; }
 
         public ConsoleLogger Logger => new ConsoleLogger();
 
-        public IPolicyRater CreateRaterForPolicy(Policy policy)
+        public IPolicyRater CreateRaterForPolicy(Policy policy, RatingEngine engine)
         {
-            return new PolicyRaterFactory(Engine, Logger).Create(policy.Type);
+            return new PolicyRaterFactory(engine, Logger).Create(policy.Type);
         }
 
         public Policy GetPolicyFromJsonString(string policyJson)

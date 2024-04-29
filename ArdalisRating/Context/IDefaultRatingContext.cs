@@ -9,7 +9,7 @@ namespace ArdalisRating.Context
         RatingEngine Engine { get; set; }
         ConsoleLogger Logger { get; }
 
-        IPolicyRater CreateRaterForPolicy(Policy policy);
+        IPolicyRater CreateRaterForPolicy(Policy policy, RatingEngine engine);
         Policy GetPolicyFromJsonString(string policyJson);
         Policy GetPolicyFromXmlString(string policyXml);
         string LoadPolicyFromFile(string file);

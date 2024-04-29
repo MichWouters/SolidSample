@@ -18,10 +18,10 @@ namespace ArdalisRating
             _context.Log("Starting rate.");
             _context.Log("Loading policy.");
 
-            string policyJson = _context.LoadPolicyFromURI("policy.json");
+            string policyJson = _context.LoadPolicyFromFile("policy.json");
             var policy = _context.GetPolicyFromJsonString(policyJson);
 
-            IPolicyRater policyRater = _context.CreateRaterForPolicy(policy);
+            IPolicyRater policyRater = _context.CreateRaterForPolicy(policy, this);
             policyRater.Rate(policy);
 
             _context.Log("Rating completed.");
