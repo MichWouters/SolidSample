@@ -22,22 +22,12 @@ namespace ArdalisRating.Context
             return new PolicySerializer().RetrievePolicyFromJson(policyJson);
         }
 
-        public Policy GetPolicyFromXmlString(string policyXml)
-        {
-            throw new NotImplementedException();
-        }
-
         public string LoadPolicyFromFile(string file)
         {
             return new FilePolicySource().GetPolicyFromSource(file);
         }
 
-        public string LoadPolicyFromURI(string uri)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Log(string message)
+        public void WriteMessage(string message)
         {
             new ConsoleLogger().WriteMessage(message);
         }

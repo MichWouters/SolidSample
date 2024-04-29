@@ -15,8 +15,8 @@ namespace ArdalisRating
 
         public void DefineRating()
         {
-            _context.Log("Starting rate.");
-            _context.Log("Loading policy.");
+            _context.WriteMessage("Starting rate.");
+            _context.WriteMessage("Loading policy.");
 
             string policyJson = _context.LoadPolicyFromFile("policy.json");
             var policy = _context.GetPolicyFromJsonString(policyJson);
@@ -24,7 +24,7 @@ namespace ArdalisRating
             IPolicyRater policyRater = _context.CreateRaterForPolicy(policy, this);
             policyRater.Rate(policy);
 
-            _context.Log("Rating completed.");
+            _context.WriteMessage("Rating completed.");
         }
     }
 }
