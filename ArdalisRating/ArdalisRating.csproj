@@ -10,7 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="samplePolicies.json.txt">
+    <None Update="Policies\samplePolicies.json.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Policies\policy.json">
