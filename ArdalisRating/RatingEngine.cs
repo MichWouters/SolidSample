@@ -1,43 +1,30 @@
-﻿using ArdalisRating.Factories;
-using ArdalisRating.Logging;
-using ArdalisRating.Policies;
+﻿using ArdalisRating.Context;
 using ArdalisRating.Raters;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
-using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace ArdalisRating
 {
     /// <summary>
-    /// The RatingEngine reads the policy application details from a file and produces a numeric 
+    /// The RatingEngine reads the policy application details from a file and produces a numeric
     /// rating value based on the details.
     /// </summary>
     public class RatingEngine : IRatingEngine
     {
-        ILogger logger = new ConsoleLogger();
-
-        FilePolicySource policySource = new FilePolicySource();
-        PolicySerializer policySerializer = new PolicySerializer();
-
+        private IDefaultRatingContext _context = new DefaultRatingContext();
 
         public decimal Rating { get; set; }
 
         public void DefineRating()
         {
-            PolicyRaterFactory factory = new PolicyRaterFactory(this, logger);
+            _context.Log("Starting rate.");
+            _context.Log("Loading policy.");
 
-            logger.WriteMessage("Starting rate.");
-            logger.WriteMessage("Loading policy.");
+            string policyJson = _context.LoadPolicyFromURI("policy.json");
+            var policy = _context.GetPolicyFromJsonString(policyJson);
 
-            string policyJson = policySource.GetPolicyFromSource("policy.json");
-            var policy = policySerializer.RetrievePolicyFromJson(policyJson);
-
-            IPolicyRater policyRater = factory.Create(policy.Type);
+            IPolicyRater policyRater = _context.CreateRaterForPolicy(policy);
             policyRater.Rate(policy);
 
-            logger.WriteMessage("Rating completed.");
+            _context.Log("Rating completed.");
         }
     }
 }

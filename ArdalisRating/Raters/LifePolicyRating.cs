@@ -5,7 +5,7 @@ using ArdalisRating.Policies;
 
 namespace ArdalisRating.Raters
 {
-    internal class LifePolicyRating : IPolicyRater
+    public class LifePolicyRating : IPolicyRater
     {
         private ILogger logger;
         private RatingEngine engine;

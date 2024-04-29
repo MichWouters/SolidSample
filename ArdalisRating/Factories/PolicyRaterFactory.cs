@@ -6,7 +6,7 @@ using System;
 
 namespace ArdalisRating.Factories
 {
-    internal class PolicyRaterFactory
+    public class PolicyRaterFactory
     {
         private RatingEngine engine;
         private ILogger logger;

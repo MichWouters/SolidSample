@@ -2,7 +2,7 @@
 
 namespace ArdalisRating.Raters
 {
-    internal interface IPolicyRater
+    public interface IPolicyRater
     {
         void Rate(Policy policy);
     }

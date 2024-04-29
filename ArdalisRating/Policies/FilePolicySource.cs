@@ -2,7 +2,7 @@
 
 namespace ArdalisRating.Policies
 {
-    internal class FilePolicySource
+    public class FilePolicySource
     {
         public string GetPolicyFromSource(string file)
         {

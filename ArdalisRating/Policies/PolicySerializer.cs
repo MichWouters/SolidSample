@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace ArdalisRating.Policies
 {
-    internal class PolicySerializer
+    public class PolicySerializer
     {
         public Policy RetrievePolicyFromJson(string policyJson)
         {

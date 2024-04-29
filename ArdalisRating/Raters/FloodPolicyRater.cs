@@ -3,7 +3,7 @@ using ArdalisRating.Policies;
 
 namespace ArdalisRating.Raters
 {
-    internal class FloodPolicyRater: IPolicyRater
+    public class FloodPolicyRater: IPolicyRater
     {
         private ILogger logger;
         private RatingEngine engine;
