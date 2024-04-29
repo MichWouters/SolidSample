@@ -1,11 +1,14 @@
-﻿namespace ArdalisRating.Raters
+﻿using ArdalisRating.Logging;
+using ArdalisRating.Policies;
+
+namespace ArdalisRating.Raters
 {
     internal class FloodPolicyRater: IPolicyRater
     {
-        private ConsoleLogger logger;
+        private ILogger logger;
         private RatingEngine engine;
 
-        public FloodPolicyRater(RatingEngine engine, ConsoleLogger logger)
+        public FloodPolicyRater(RatingEngine engine, ILogger logger)
         {
             this.engine = engine;
             this.logger = logger;

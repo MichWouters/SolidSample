@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.AccessControl;
 
-namespace ArdalisRating
+namespace ArdalisRating.Policies
 {
 
     public class Policy

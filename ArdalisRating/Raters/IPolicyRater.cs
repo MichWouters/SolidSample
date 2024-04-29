@@ -1,4 +1,6 @@
-﻿namespace ArdalisRating.Raters
+﻿using ArdalisRating.Policies;
+
+namespace ArdalisRating.Raters
 {
     internal interface IPolicyRater
     {

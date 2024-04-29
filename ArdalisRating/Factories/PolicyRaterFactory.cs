@@ -1,4 +1,6 @@
-﻿using ArdalisRating.Raters;
+﻿using ArdalisRating.Logging;
+using ArdalisRating.Policies;
+using ArdalisRating.Raters;
 using System;
 
 
@@ -7,9 +9,9 @@ namespace ArdalisRating.Factories
     internal class PolicyRaterFactory
     {
         private RatingEngine engine;
-        private ConsoleLogger logger;
+        private ILogger logger;
 
-        public PolicyRaterFactory(RatingEngine engine, ConsoleLogger logger)
+        public PolicyRaterFactory(RatingEngine engine, ILogger logger)
         {
             this.engine = engine;
             this.logger = logger;
@@ -19,6 +21,8 @@ namespace ArdalisRating.Factories
         {
             switch (policyType)
             {
+                case PolicyType.Auto:
+                    return new AutoPolicyRater(engine, logger);
                 case PolicyType.Flood:
                     return new FloodPolicyRater(engine, logger);
                 case PolicyType.Land:

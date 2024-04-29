@@ -1,14 +1,16 @@
 ﻿using System;
+using ArdalisRating.Logging;
+using ArdalisRating.Policies;
 
 
 namespace ArdalisRating.Raters
 {
     internal class LifePolicyRating : IPolicyRater
     {
-        private ConsoleLogger logger;
+        private ILogger logger;
         private RatingEngine engine;
 
-        public LifePolicyRating(RatingEngine engine, ConsoleLogger logger)
+        public LifePolicyRating(RatingEngine engine, ILogger logger)
         {
             this.engine = engine;
             this.logger = logger;

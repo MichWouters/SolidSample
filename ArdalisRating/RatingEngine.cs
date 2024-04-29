@@ -1,8 +1,11 @@
 ﻿using ArdalisRating.Factories;
+using ArdalisRating.Logging;
+using ArdalisRating.Policies;
 using ArdalisRating.Raters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace ArdalisRating
@@ -11,15 +14,16 @@ namespace ArdalisRating
     /// The RatingEngine reads the policy application details from a file and produces a numeric 
     /// rating value based on the details.
     /// </summary>
-    public class RatingEngine
+    public class RatingEngine : IRatingEngine
     {
-        ConsoleLogger logger = new ConsoleLogger();
+        ILogger logger = new ConsoleLogger();
+
         FilePolicySource policySource = new FilePolicySource();
-        PolicySerializer policySerializer = new PolicySerializer(); 
-       
+        PolicySerializer policySerializer = new PolicySerializer();
+
 
         public decimal Rating { get; set; }
-        
+
         public void DefineRating()
         {
             PolicyRaterFactory factory = new PolicyRaterFactory(this, logger);
